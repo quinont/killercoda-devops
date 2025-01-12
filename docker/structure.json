@@ -1,0 +1,11 @@
+{
+  "title": "Aprendamos Docker",
+  "description": "Guia de ejercicios para aprender docker",
+  "items": [
+    {
+      "path": "a01-una_nueva_app",
+      "title": "A - 01 - Una nueva app",
+      "description": "Levantemos nuestra app paso a paso, despues tendremos otros desafios."
+    }
+  ]
+}
