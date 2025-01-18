@@ -2,47 +2,46 @@
 
 Como vimos anteriormente, la forma de probar esto:
 
-```
+```bash
 curl http://localhost:8080/
 ```
 
-No esta funcionado, pero ¿por que pasa esto?
+Nos devuelve un 403, por lo tanto, las solicitudes no estan llegando al backend... ¿Por qué pasa esto?
 
-Primero, analicemos el log del nginx.
+Primero, analicemos el log de Nginx.
 
-## Viendo logs de containers en docker
+## Viendo logs de containers en Docker
 
-Para este caso lo que tenemos que hacer es ocupar el comando `logs`, por lo tanto:
+Para este caso, usaremos el comando `logs`. Así que ejecuta lo siguiente:
 
-```
+```bash
 docker logs CONTAINER
 ```
 
-Cambiemos `CONTAINER` por el identificador del container que queremos ver el error. En este caso, el nginx.
+Reemplaza `CONTAINER` con el identificador del container que queremos inspeccionar. En este caso, el container de Nginx.
 
-¿Vemos las solicitudes que llegan?
-
+¿Puedes ver las solicitudes que llegan? ¡Perfecto! Sigamos investigando.
 
 ## Las solicitudes llegan
 
-Las solicitudes de `curl` estan llegando. Entonces?
+Las solicitudes de `curl` están llegando al Nginx. Entonces, ¿cuál es el problema?
 
-El nginx esta configurado para responder solo a ciertos dominios, en este caso `www.aprendamos-docker.com`.
+El Nginx está configurado para responder solo a ciertos dominios, en este caso, `www.aprendamos-docker.com`.
 
-> OK, ocupemos ese dominio o no?
+> ¿Deberíamos modificar el archivo `/etc/hosts` del nodo para resolver esto?
 
-Si podriamos modificar el `/etc/hosts` del nodo, pero tenemos un mecanismo mas simple para hacerlo.
+Podríamos hacerlo, pero existe un mecanismo más simple.
 
-> CUAL?
+> ¿Cuál?
 
-La idea es ocupar el header host de http. La idea es ejecutar el comando curl, pero ahora con el header necesario indicando el dominio
+Podemos utilizar el encabezado `Host` en la solicitud HTTP. Para ello, ejecutaremos el comando `curl`, pero añadiendo el encabezado necesario que indica el dominio:
 
-Nos queda de esta forma:
-
-```
+```bash
 curl --header "Host: www.aprendamos-docker.com" http://localhost:8080/
-```{{copy}}
+```
 
-De esta forma si llegamos a la aplicacion destino.
+De esta forma, las solicitudes llegarán correctamente a la aplicación destino. 🎉
 
-Continuemos con el siguiente escenario.
+¡Continuemos con el siguiente escenario!
+
+
