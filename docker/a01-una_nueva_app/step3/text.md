@@ -1,38 +1,48 @@
-# Levantemos el balanceador
+# Probando el escenario
 
-Y ahora, levantemos el nginx
-
-el archivo de configuracion deberia ser asi:
+Como vimos anteriormente, la forma de probar esto:
 
 ```
-server {
-    listen 80;
-    server_name www.aprendamos-docker.com *.aprendamos-docker.com;
-
-    root /usr/local/nginx/html;
-
-    location / {
-        proxy_pass http://IP-DE-LA-APP:8080;
-
-        proxy_connect_timeout 5s;
-        proxy_send_timeout 5s;
-        proxy_read_timeout 5s;
-
-        proxy_redirect http://IP-DE-LA-APP:8080/ /;
-    }
-}
-
-server {
-    listen 80 default_server;
-    server_name _;
-
-    return 403;
-}
+curl http://localhost:8080/
 ```
 
-Con esto hacemos un archivo que se llame default.conf
+No esta funcionado, pero ¿por que pasa esto?
 
-Ahora a levantar el container:
-- Nombre del container: nginx
-- Mapear puerto del nodo al container, el 8080 del nodo al puerto 80 del container.
-- montar el archivo default.conf a la ubicacion de `/etc/nginx/conf.d/default.conf`
+Primero, analicemos el log del nginx.
+
+## Viendo logs de containers en docker
+
+Para este caso lo que tenemos que hacer es ocupar el comando `logs`, por lo tanto:
+
+```
+docker logs CONTAINER
+```
+
+Cambiemos `CONTAINER` por el identificador del container que queremos ver el error. En este caso, el nginx.
+
+¿Vemos las solicitudes que llegan?
+
+
+## Las solicitudes llegan
+
+Las solicitudes de `curl` estan llegando. Entonces?
+
+El nginx esta configurado para responder solo a ciertos dominios, en este caso `www.aprendamos-docker.com`.
+
+> OK, ocupemos ese dominio o no?
+
+Si podriamos modificar el `/etc/hosts` del nodo, pero tenemos un mecanismo mas simple para hacerlo.
+
+> CUAL?
+
+La idea es ocupar el header host de http. La idea es ejecutar el comando curl, pero ahora con el header necesario indicando el dominio
+
+Nos queda de esta forma:
+
+```
+curl --headers "Host: www.aprendamos-docker.com" http://localhost:8080/
+```{{copy}}
+
+De esta forma si llegamos a la aplicacion destino.
+
+Continuemos con el siguiente escenario.

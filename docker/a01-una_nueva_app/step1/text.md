@@ -1,8 +1,21 @@
-# Que estamos intentando hacer
+# Paso 1: Levantando el Backend
 
-La idea es levantar una app y tambien un nginx que sirva de balanceador.
+## ¿Qué estamos intentando hacer?
 
-En este momento lo que vamos a tener es solamente levantar 2 containers por sepados.
+La idea ahora es levantar nuestra importante aplicacion.
 
 
-Asi que comencemos con la primera parte: levantar la app.
+## Levantando la app
+
+Vamos a poner en marcha nuestro servicio principal. Aquí tienes los detalles:
+
+- **Imagen**: `quinont/resistrining:ej1`
+- **Nombre del contenedor**: `app`
+- **Puertos**: No es necesario exponer ninguno (por ahora).
+
+Es importante que el container tenga nombre de app y la imagen necesaria, caso contrario no se podra continuar con el siguiente step.
+
+## App arriba
+
+Cuando tengas el container arriba, por favor continua con el siguiente paso.
+
