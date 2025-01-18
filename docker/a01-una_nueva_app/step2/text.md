@@ -19,8 +19,6 @@ server {
         proxy_connect_timeout 5s;
         proxy_send_timeout 5s;
         proxy_read_timeout 5s;
-
-        proxy_redirect http://IP-DE-LA-APP:8080/ /;
     }
 }
 
@@ -67,7 +65,18 @@ Para poder validar si estamos correctamente, tenemos que hacer lo siguiente:
 curl http://localhost:8080/
 ```{{exec}}
 
-Momento.... esto parece no funcionar, que esta pasando?
+Momento.... aparece esto
+```
+<html>
+<head><title>403 Forbidden</title></head>
+<body>
+<center><h1>403 Forbidden</h1></center>
+<hr><center>nginx/1.27.3</center>
+</body>
+</html>
+```
+
+Esta respuesta la esta dando el nginx, pero las solicitudes no estan llegando a la app.
 
 ---
 

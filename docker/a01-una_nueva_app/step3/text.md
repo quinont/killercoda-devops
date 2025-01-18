@@ -40,7 +40,7 @@ La idea es ocupar el header host de http. La idea es ejecutar el comando curl, p
 Nos queda de esta forma:
 
 ```
-curl --headers "Host: www.aprendamos-docker.com" http://localhost:8080/
+curl --header "Host: www.aprendamos-docker.com" http://localhost:8080/
 ```{{copy}}
 
 De esta forma si llegamos a la aplicacion destino.
