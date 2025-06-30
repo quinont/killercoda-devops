@@ -1,0 +1,42 @@
+{
+  "title": "Introduccion a K8sGPT",
+  "description": "Introduccion a K8sGPT.",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Instalando K8sGPT",
+        "text": "step01/step.md"
+      },
+      {
+        "title": "Configurando K8sGPT",
+        "text": "step02/step.md"
+      },
+      {
+        "title": "Desplegando Artefacto con error",
+        "text": "step03/step.md"
+      },
+      {
+        "title": "Corriendo K8sGPT",
+        "text": "step04/step.md"
+      },
+      {
+        "title": "Analizando el resultado",
+        "text": "step05/step.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {"file": "manifests.yaml", "target": "/root", "chmod": "+w"}
+      ]
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}

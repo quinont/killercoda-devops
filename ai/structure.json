@@ -1,0 +1,11 @@
+{
+  "title": "Kubernetes mas AI",
+  "description": "Revisemos como podemos democratizar el uso de Kubernetes con la AI",
+  "items": [
+    {
+      "path": "k8sgpt-01",
+      "title": "Introduccion a K8sGPT",
+      "description": "Introduccion a K8sGPT."
+    }
+  ]
+}
