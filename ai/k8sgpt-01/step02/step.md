@@ -1,4 +1,4 @@
-# Configurando k8sgpt
+# Primeros pasos en k8sgpt
 
 Excelente, ya llegamos hasta aqui. Ahora tenemos que decirle a k8sgpt que LLM va a utilizar para trabajar con kubernetes.
 
@@ -20,7 +20,8 @@ Si bien puedes ocupar todas estas alternativas:
 
 Este lab solo se va a enfocar en la configuracion de Gemini de Google (la opcion de google) ocupando google studio.
 
-> [!TIP]
+> [Consejo]
+>
 > Tambien podemos ocupar noopai, que es para que k8sgpt no se conecte a ningun LLM. (mas seguridad? tal vez...)
 
 ## Configurando el LLM
@@ -38,7 +39,8 @@ k8sgpt auth add --backend google --model "gemini-2.0-flash-lite"
 
 Y despues nos va a pedir el token.
 
-> [!TIP]
+> [Consejo]
+>
 > Podriamos ocupar otro modelo, como por ejemplo `gemini-2.0-flash` o `gemini-2.0-pro`, pero para este lab vamos a ocupar el modelo `gemini-2.0-flash-lite` que es el mas liviano y rapido (ademas mas barato). 
 > Para este lab con el modelo mas basico es suficiente. Igual podrias probar cambiar de modelo y ver que tal es el resultado.
 
@@ -55,7 +57,7 @@ Si todo salio bien, deberiamos ver algo como esto:
 ```bash
 $ k8sgpt auth list
 Default: 
-> google
+> openai
 Active: 
 > google
 Unused: 

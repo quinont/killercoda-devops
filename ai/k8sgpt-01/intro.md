@@ -17,7 +17,6 @@ Es importante tener un token de algun LLM.
 >  
 > No me hago responsable del mal uso de la herramienta (killercoda) o de la filtración del token.  
 > Por favor, una vez que termine el lab, borre el token para mayor seguridad.
-{: .alert .alert-danger}
 
 
 ## Comenzando

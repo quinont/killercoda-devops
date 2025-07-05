@@ -1,4 +1,4 @@
-# Desplegando Artefacto con error
+# Manos a la obra con nuestro artefacto
 
 Es hora de poner a prueba el k8sGPT con un escenario de ejemplo. Vamos a desplegar un artefacto que tiene un error intencional para que k8sGPT pueda ayudarnos a solucionarlo.
 
@@ -36,15 +36,21 @@ Revisemos el pod que se ha creado, ejecuta el siguiente comando:
 kubectl get pods -n ej1
 ```{{exec}}
 
-Si todo salio bien, deberias ver un pod con el nombre `my-app-xxxx-xxxx` y el estado `Desplegando`.
+Para revisar el servicio, ejecuta el siguiente comando:
 
-Ahora llamemos invoquemos al servicio mediante el NodePort que se ha creado, ejecuta el siguiente comando:
+```bash
+kubectl get svc -n ej1
+```{{exec}}
+
+Si todo salio bien, deberias ver un pod con el nombre `my-app-xxxxxxxxx-xxxxx` y el estado `Desplegando`.
+
+Ahora llamemos invoquemos al servicio mediante el *NodePort* que se ha creado, ejecuta el siguiente comando:
 
 ```bash
 curl http://localhost:31080 -v
 ```{{exec}}
 
-Ohh noo!, tenemos un error de connection refused :( 
+_Ohh noo!_, tenemos un error de `Couldn't connect to server` :( 
 
 Que haremos ahora??? No te preocupes, k8sGPT esta aqui para ayudarnos (o eso esperamos...).
 
