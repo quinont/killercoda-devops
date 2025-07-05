@@ -1,6 +1,6 @@
 {
   "title": "Introduccion a K8sGPT",
-  "description": "Introduccion a K8sGPT.",
+  "description": "Aqui veremos de forma rapida como instalar y usar K8sGPT, una herramienta que facilita la interaccion con Kubernetes usando AI.",
   "details": {
     "intro": {
       "text": "intro.md"
