@@ -1,6 +1,6 @@
 # Manos a la obra con nuestro artefacto
 
-Es hora de poner a prueba el k8sGPT con un escenario de ejemplo. Vamos a desplegar un artefacto que tiene un error intencional para que k8sGPT pueda ayudarnos a solucionarlo.
+Es hora de poner a prueba el kubectl-ai con un escenario de ejemplo. Vamos a desplegar un artefacto que tiene un error intencional para que kubectl-ai pueda ayudarnos a solucionarlo.
 
 ## Manifest con error
 
@@ -12,11 +12,11 @@ cat /root/manifests.yaml
 
 Revisa con cuidado el archivo...
 
-Pudiste encontrar el error? Si no, no te preocupes, k8sGPT te ayudara a encontrarlo.
+Pudiste encontrar el error? Si no, no te preocupes, *kubectl-ai* te ayudara a encontrarlo.
 
 ## Desplegando el artefacto
 
-Antes de continuar, tenemos que generar el namespace donde vamos a desplegar el artefacto. Para eso, ejecuta el siguiente comando:
+Antes de continuar, tenemos que *generar el namespace* donde vamos a desplegar el artefacto. Para eso, ejecuta el siguiente comando:
 
 ```bash
 kubectl create namespace ej1
@@ -52,6 +52,10 @@ curl http://localhost:31080 -v
 
 _Ohh noo!_, tenemos un error de `Couldn't connect to server` :( 
 
-Que haremos ahora??? No te preocupes, k8sGPT esta aqui para ayudarnos (o eso esperamos...).
+curl nos odia? posiblemente...
 
-Vamos al siguiente paso...
+kubernetes nos odia? seguro.
+
+Que haremos ahora??? No te preocupes, kubectl-ai esta aqui para ayudarnos (o eso esperamos...).
+
+Vamos a arreglar nuestro servicio en el siguiente paso...

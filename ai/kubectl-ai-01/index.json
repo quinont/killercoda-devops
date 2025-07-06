@@ -1,0 +1,42 @@
+{
+  "title": "Introduccion a Kubectl-ai",
+  "description": "Aqui veremos de forma rapida como instalar y usar Kubectl-ai, una herramienta que facilita la interaccion con Kubernetes usando AI.",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Instalando Kubectl-ai",
+        "text": "step01/step.md"
+      },
+      {
+        "title": "Configurando Kubectl-ai",
+        "text": "step02/step.md"
+      },
+      {
+        "title": "Desplegando Artefacto con error",
+        "text": "step03/step.md"
+      },
+      {
+        "title": "Corriendo Kubectl-ai",
+        "text": "step04/step.md"
+      },
+      {
+        "title": "Analizando el resultado",
+        "text": "step05/step.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {"file": "manifests.yaml", "target": "/root", "chmod": "+w"}
+      ]
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
