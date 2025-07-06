@@ -47,7 +47,7 @@ Si todo salio bien, deberias ver un pod con el nombre `my-app-xxxxxxxxx-xxxxx` y
 Ahora llamemos invoquemos al servicio mediante el *NodePort* que se ha creado, ejecuta el siguiente comando:
 
 ```bash
-curl http://localhost:31080 -v
+curl http://localhost:31080
 ```{{exec}}
 
 _Ohh noo!_, tenemos un error de `Couldn't connect to server` :( 

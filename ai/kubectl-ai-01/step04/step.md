@@ -10,7 +10,7 @@ Antes de lanzarnos de cabeza, es crucial entender cómo funciona `kubectl-ai`.
 
 Imagina `kubectl-ai` como tu traductor personal para la _API de Kubernetes_. Transforma nuestras peticiones en *lenguaje natural* en los *comandos*, a veces crípticos, que Kubernetes entiende.
 
-Por ejemplo, en lugar de ejecutar el clásico `kubectl get pod -A` para ver todos los pods, podrías simplemente pedirlo en lenguaje humano: `echo \"listar todos los pods en mi clúster\" | kubectl-ai`.
+Por ejemplo, en lugar de ejecutar el clásico `kubectl get pod -A`{{exec}} para ver todos los pods, podrías simplemente pedirlo en lenguaje humano: `echo "listar todos los pods que existen en mi cluster" | kubectl-ai --model gemini-1.5-flash `{{exec}}.
 
 Detrás de escena, cada pregunta que le haces se envía a un Modelo de Lenguaje Grande (LLM). Este modelo interpreta tu solicitud y decide si necesita ejecutar comandos contra la API de Kubernetes para obtener una respuesta.
 
@@ -28,13 +28,13 @@ Cada interacción con `kubectl-ai` puede resultar en tres escenarios:
 Para iniciar una sesión interactiva con `kubectl-ai`, simplemente ejecuta el siguiente comando:
 
 ```bash
-kubectl-ai --model gemini-1.5-flash
+kubectl-ai --model gemini-2.5-pro
 ```{{exec}}
 
 Una vez ejecutado, se abrirá un chat en tu terminal para que puedas interactuar:
 
 ```text
-$ kubectl-ai --model gemini-1.5-flash
+$ kubectl-ai --model gemini-2.5-pro
 
   Hey there, what can I help you with today?  
 
@@ -44,7 +44,7 @@ $ kubectl-ai --model gemini-1.5-flash
 
 > [TIP]
 >
-> Te animo a experimentar con diferentes modelos. Prueba la diferencia de velocidad y calidad entre `gemini-1.5-flash` y `gemini-1.5-pro`. ¡Los resultados pueden sorprenderte!
+> Te animo a experimentar con diferentes modelos. Prueba la diferencia de velocidad y calidad entre `gemini-1.5-flash` y `gemini-2.5-flash`. ¡Los resultados pueden sorprenderte!
 
 Dado que `kubectl-ai` es un agente con \"conexión\" a la API de Kubernetes (en realidad, ejecuta comandos `kubectl` por ti), la calidad de tu *prompt* es crucial. Un buen prompt puede marcar la diferencia entre una solución brillante y un resultado confuso.
 
@@ -58,7 +58,7 @@ Vamos a darle todo el contexto que tenemos hasta ahora:
 Con todo esto en mente, nuestro prompt será:
 
 ```
-En el namespace ej1 levanté un deployment y un servicio. Al hacer un \"curl http://localhost:31080\" tengo un error que dice: \"(7) Failed to connect to localhost port 31080 after 1 ms: Couldn't connect to server\". ¿Qué tengo mal configurado que me da este error y cómo puedo solucionarlo? Quiero que me expliques todo en español.
+En el namespace ej1 levanté un deployment y un servicio. Al hacer un "curl http://localhost:31080" tengo un error que dice: "(7) Failed to connect to localhost port 31080 after 1 ms: Couldn't connect to server". No tengo ningun problema de networking, es algo que esta mal entre el servicio y los pods. necesito que arregles el problema. Quiero que me expliques todo en español.
 ```{{exec}}
 
 > [RECOMENDACIÓN]
@@ -105,7 +105,7 @@ kubectl patch svc my-app --type='merge' -p '{\"spec\": {\"selector\": {\"app\": 
 Con el parche aplicado, intentemos de nuevo acceder al servicio:
 
 ```bash
-curl http://localhost:31080 -v
+curl http://localhost:31080
 ```{{exec}}
 
 Si todo salió bien, deberías ver la gloriosa respuesta:
