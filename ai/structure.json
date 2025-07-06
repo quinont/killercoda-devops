@@ -6,6 +6,11 @@
       "path": "k8sgpt-01",
       "title": "Introduccion a K8sGPT",
       "description": "Aqui veremos de forma rapida como instalar y usar K8sGPT, una herramienta que facilita la interaccion con Kubernetes usando AI."
+    },
+    {
+      "path": "kubectl-ai-01",
+      "title": "Introduccion a kubectl-ai",
+      "description": "El ataque de los Agentes para kubernetes, como pasar de comandos cripticos a lenguaje natural con kubectl-ai."
     }
   ]
 }
